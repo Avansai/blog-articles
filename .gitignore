@@ -1,0 +1,24 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# IDE
+.idea
+.vscode
+
+# Secrets
+.env.*
+!.env.example
+
+# Node dependencies
+node_modules/
+
+# Next.js
+.next/
+
+# Vercel
+.vercel
+
+# MacOS file attributes
+.DS_Store
+
+# Logs
+*.log

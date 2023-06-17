@@ -1,0 +1,28 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <g transform="matrix(1,0,0,1,0,0)">
+    <!-- Top-left circle -->
+    <circle
+      data-node-id="top-left-circle"
+      fill="black"
+      cx="50"
+      cy="50"
+      r="40"
+    />
+    <!-- Top-right circle -->
+    <circle
+      data-node-id="top-right-circle"
+      fill="black"
+      cx="150"
+      cy="40"
+      r="30"
+    />
+    <!-- Bottom-right circle -->
+    <circle
+      data-node-id="bottom-right-circle"
+      fill="black"
+      cx="150"
+      cy="150"
+      r="20"
+    />
+  </g>
+</svg>

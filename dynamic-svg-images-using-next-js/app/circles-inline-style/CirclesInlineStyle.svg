@@ -1,0 +1,37 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    /** Ocean breeze */
+    svg[data-color-mode="oceanBreeze"] #top-right-circle {
+      fill: DeepSkyBlue;
+    }
+
+    svg[data-color-mode="oceanBreeze"] #top-left-circle {
+      fill: MediumAquaMarine;
+    }
+
+    svg[data-color-mode="oceanBreeze"] #bottom-right-circle {
+      fill: CornflowerBlue;
+    }
+
+    /** Sunset glow */
+    svg[data-color-mode="sunsetGlow"] #top-right-circle {
+      fill: Coral;
+    }
+
+    svg[data-color-mode="sunsetGlow"] #top-left-circle {
+      fill: Gold;
+    }
+
+    svg[data-color-mode="sunsetGlow"] #bottom-right-circle {
+      fill: DarkOrange;
+    }
+  </style>
+  <g transform="matrix(1,0,0,1,0,0)">
+    <!-- Top-left circle -->
+    <circle id="top-left-circle" fill="black" cx="50" cy="50" r="40" />
+    <!-- Top-right circle -->
+    <circle id="top-right-circle" fill="black" cx="150" cy="40" r="30" />
+    <!-- Bottom-right circle -->
+    <circle id="bottom-right-circle" fill="black" cx="150" cy="150" r="20" />
+  </g>
+</svg>

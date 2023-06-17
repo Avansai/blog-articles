@@ -1,0 +1,25 @@
+/** Ocean breeze */
+.oceanBreeze [data-node-id="top-right-circle"] {
+  fill: DeepSkyBlue;
+}
+
+.oceanBreeze [data-node-id="top-left-circle"] {
+  fill: MediumAquaMarine;
+}
+
+.oceanBreeze [data-node-id="bottom-right-circle"] {
+  fill: CornflowerBlue;
+}
+
+/** Sunset glow */
+.sunsetGlow [data-node-id="top-right-circle"] {
+  fill: Coral;
+}
+
+.sunsetGlow [data-node-id="top-left-circle"] {
+  fill: Gold;
+}
+
+.sunsetGlow [data-node-id="bottom-right-circle"] {
+  fill: DarkOrange;
+}
