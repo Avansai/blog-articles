@@ -23,7 +23,11 @@ All content contained in this repository can be used according to our [license t
 
 ## Contact
 
-For any questions or feedback, feel free to open issues.
+For any questions or feedback, feel free to open GitHub issues.
+
+## About Avansai
+
+[Avansai](https://avansai.com), founded in Montreal in 2019, is an IT recruitment and tech company driven to reform the recruitment industry by providing a superior, relevant experience for clients and candidates through an innovative online job marketplace, fueled by feedback and the power of technology.
 
 ---
 
@@ -31,6 +35,6 @@ For any questions or feedback, feel free to open issues.
 
 Made with ❤️ by
 
-[![Avansai](https://raw.githubusercontent.com/Avansai/blog-articles/main/images/avansai-logo-dark.svg#gh-dark-mode-only)![Avansai](https://raw.githubusercontent.com/Avansai/blog-articles/main/images/avansai-logo-light.svg#gh-light-mode-only)](https://avansai.com/)
+![Avansai](https://raw.githubusercontent.com/Avansai/blog-articles/main/images/avansai-logo-dark.svg#gh-dark-mode-only)![Avansai](https://raw.githubusercontent.com/Avansai/blog-articles/main/images/avansai-logo-light.svg#gh-light-mode-only)
 
 </div>

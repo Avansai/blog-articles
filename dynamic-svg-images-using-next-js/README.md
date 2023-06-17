@@ -19,6 +19,6 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 Made with ❤️ by
 
-[![Avansai](https://raw.githubusercontent.com/Avansai/blog-articles/main/images/avansai-logo-dark.svg#gh-dark-mode-only)![Avansai](https://raw.githubusercontent.com/Avansai/blog-articles/main/images/avansai-logo-light.svg#gh-light-mode-only)](https://avansai.com/)
+![Avansai](https://raw.githubusercontent.com/Avansai/blog-articles/main/images/avansai-logo-dark.svg#gh-dark-mode-only)![Avansai](https://raw.githubusercontent.com/Avansai/blog-articles/main/images/avansai-logo-light.svg#gh-light-mode-only)
 
 </div>
