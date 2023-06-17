@@ -12,3 +12,14 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+---
+
+<div align="center">
+
+Made with ❤️ by
+
+[![Avansai](../images/avansai-logo-dark.svg#gh-dark-mode-only)](https://avansai.com/)
+[![Avansai](../images/avansai-logo-light.svg#gh-light-mode-only)](https://avansai.com/)
+
+</div>
