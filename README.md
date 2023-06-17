@@ -31,7 +31,6 @@ For any questions or feedback, feel free to open issues.
 
 Made with ❤️ by
 
-[![Avansai](./images/avansai-logo-dark.svg#gh-dark-mode-only)](https://avansai.com/)
-[![Avansai](./images/avansai-logo-light.svg#gh-light-mode-only)](https://avansai.com/)
+![Avansai](https://raw.githubusercontent.com/Avansai/blog-articles/main/images/avansai-logo-dark.svg#gh-dark-mode-only)![Avansai](https://raw.githubusercontent.com/Avansai/blog-articles/main/images/avansai-logo-light.svg#gh-light-mode-only)
 
 </div>
