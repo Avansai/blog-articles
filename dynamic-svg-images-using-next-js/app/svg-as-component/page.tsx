@@ -1,5 +1,5 @@
 export default function SvgAsComponentPage() {
-  return <CheckMarkComponentInvalid color="red" strokeWidth="0.5px" />
+  return <CheckMarkComponent color="red" strokeWidth="0.5px" />
 }
 
 const CheckMarkComponent: React.FC<{
