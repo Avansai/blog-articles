@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 /**
  * Type guard to check if a React node is a functional component.
@@ -9,14 +9,11 @@ import React from "react";
  */
 const isFunctionalComponent = (
   node: React.ReactNode
-): node is React.FunctionComponentElement<React.SVGProps<SVGSVGElement>> => {
-  return (
-    node !== null &&
-    typeof node === "object" &&
-    "type" in node &&
-    typeof node.type === "function"
-  );
-};
+): node is React.FunctionComponentElement<React.SVGProps<SVGSVGElement>> =>
+  node !== null &&
+  typeof node === 'object' &&
+  'type' in node &&
+  typeof node.type === 'function'
 
 /**
  * Get the name of a component.
@@ -26,55 +23,54 @@ const isFunctionalComponent = (
  * @returns The component name.
  */
 const getComponentName = (component: React.ReactElement) =>
-  typeof component.type === "string"
+  typeof component.type === 'string'
     ? component.type
     : (component?.type as React.FunctionComponent)?.displayName ||
       component?.type?.name ||
-      "Unknown";
+      'Unknown'
 
 /**
  * Component to add margin around an SVG image.
  */
 export const SvgMargin: React.FC<{
-  children: React.ReactElement<React.SVGProps<SVGSVGElement>>;
+  children: React.ReactElement<React.SVGProps<SVGSVGElement>>
   /** The size of the margin to apply to the SVG image (e.g., 5 will be 5% of the image height/width). */
-  size: number;
+  size: number
 }> = ({ children, size: marginRatio }) => {
   if (!isFunctionalComponent(children)) {
-    return children;
+    return children
   }
 
-  const SvgComponent = children.type({});
+  const SvgComponent = children.type({})
 
   if (!React.isValidElement<React.SVGProps<SVGSVGElement>>(SvgComponent)) {
-    return children;
+    return children
   }
 
-  const viewBox =
-    children?.props?.viewBox ?? SvgComponent?.props?.viewBox ?? "";
+  const viewBox = children?.props?.viewBox ?? SvgComponent?.props?.viewBox ?? ''
 
   const [x, y, width, height] = viewBox
-    .split(" ")
-    .map((value) => parseFloat(value));
+    .split(' ')
+    .map((value) => parseFloat(value))
 
   if ([x, y, width, height].some((val) => val == null || isNaN(val))) {
     console.error(
       `missing viewBox property for svg ${getComponentName(SvgComponent)}`
-    );
-    return children;
+    )
+    return children
   }
 
-  const margin = marginRatio / 100;
+  const margin = marginRatio / 100
 
   // Calculate new x and width values.
-  const widthMargin = width * margin;
-  const newX = x - widthMargin;
-  const newWidth = width + 2 * widthMargin;
+  const widthMargin = width * margin
+  const newX = x - widthMargin
+  const newWidth = width + 2 * widthMargin
 
   // Calculate new y and height values.
-  const heightMargin = height * margin;
-  const newY = y - heightMargin;
-  const newHeight = height + 2 * heightMargin;
+  const heightMargin = height * margin
+  const newY = y - heightMargin
+  const newHeight = height + 2 * heightMargin
 
   return React.cloneElement(
     SvgComponent,
@@ -83,5 +79,5 @@ export const SvgMargin: React.FC<{
       viewBox: `${newX} ${newY} ${newWidth} ${newHeight}`,
     },
     SvgComponent.props.children
-  );
-};
+  )
+}

@@ -193,6 +193,17 @@ type NoThrowResult<A> = A extends Promise<infer U>
   ? Promise<U | NormalizedError>
   : A | NormalizedError
 
+/**
+ * Perform an action without throwing errors.
+ *
+ * Try/catch blocks can be hard to read and can cause scoping issues. This wrapper
+ * avoids those pitfalls by returning the appropriate result based on whether the function
+ * executed successfully or not.
+ *
+ * @param action - The action to perform.
+ *
+ * @returns The result of the action when successful, or a `NormalizedError` object otherwise.
+ */
 export const noThrow = <A>(action: () => A): NoThrowResult<A> => {
   try {
     const result = action()

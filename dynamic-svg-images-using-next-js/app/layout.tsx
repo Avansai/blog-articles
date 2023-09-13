@@ -1,37 +1,34 @@
-import { Inter } from "next/font/google";
-import "./global.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import './global.css'
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
-    <html className={inter.className}>
+    <html>
       <body
         style={{
-          position: "absolute",
+          position: 'absolute',
           padding: 0,
           margin: 0,
-          height: "100%",
-          width: "100%",
+          height: '100%',
+          width: '100%',
         }}
       >
         <div
           style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "center",
-            minHeight: "100%",
-            height: "auto",
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
+            minHeight: '100%',
+            height: 'auto',
           }}
         >
-          <div style={{ margin: "10%" }}>{children}</div>
+          <div style={{ margin: '10%' }}>{children}</div>
         </div>
       </body>
     </html>
-  );
+  )
 }

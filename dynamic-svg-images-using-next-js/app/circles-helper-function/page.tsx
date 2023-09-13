@@ -1,26 +1,26 @@
-"use client";
+'use client'
 
-import { useEffect, useState } from "react";
-import CirclesHelperFunction from "./CirclesHelperFunction.svg";
-import { SvgController } from "@/src/SvgController";
+import { useEffect, useState } from 'react'
+import CirclesHelperFunction from './CirclesHelperFunction.svg'
+import { SvgController } from '@/src/SvgController'
 
 const getRandomColor = () =>
-  "#" + Math.floor(Math.random() * 16777215).toString(16);
+  '#' + Math.floor(Math.random() * 16777215).toString(16)
 
 export default function CirclesHelperFunctionPage() {
-  const [topLeftCircleColor, setTopLeftCircleColor] = useState("none");
-  const [topRightCircleColor, setTopRightCircleColor] = useState("none");
-  const [bottomLeftCircleColor, setBottomLeftCircleColor] = useState("none");
+  const [topLeftCircleColor, setTopLeftCircleColor] = useState('none')
+  const [topRightCircleColor, setTopRightCircleColor] = useState('none')
+  const [bottomLeftCircleColor, setBottomLeftCircleColor] = useState('none')
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTopLeftCircleColor(getRandomColor());
-      setTopRightCircleColor(getRandomColor());
-      setBottomLeftCircleColor(getRandomColor());
-    }, 100);
+      setTopLeftCircleColor(getRandomColor())
+      setTopRightCircleColor(getRandomColor())
+      setBottomLeftCircleColor(getRandomColor())
+    }, 100)
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <>
@@ -28,22 +28,22 @@ export default function CirclesHelperFunctionPage() {
         rules={[
           {
             selector: {
-              attributeName: "data-node-id",
-              attributeValue: "top-left-circle",
+              attributeName: 'data-node-id',
+              attributeValue: 'top-left-circle',
             },
             props: { fill: topLeftCircleColor },
           },
           {
             selector: {
-              attributeName: "data-node-id",
-              attributeValue: "top-right-circle",
+              attributeName: 'data-node-id',
+              attributeValue: 'top-right-circle',
             },
             props: { fill: topRightCircleColor },
           },
           {
             selector: {
-              attributeName: "data-node-id",
-              attributeValue: "bottom-left-circle",
+              attributeName: 'data-node-id',
+              attributeValue: 'bottom-left-circle',
             },
             props: { fill: bottomLeftCircleColor },
           },
@@ -52,5 +52,5 @@ export default function CirclesHelperFunctionPage() {
         <CirclesHelperFunction />
       </SvgController>
     </>
-  );
+  )
 }

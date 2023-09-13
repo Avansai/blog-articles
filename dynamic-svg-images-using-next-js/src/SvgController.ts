@@ -1,18 +1,18 @@
-import React from "react";
+import React from 'react'
 
 type ExtendedSVGProps = React.SVGProps<SVGSVGElement> & {
-  [attr: string]: string;
-};
+  [attr: string]: string
+}
 
 type ControlRule = {
   selector: {
-    attributeName: string;
-    attributeValue: string;
-  };
-  props: React.SVGProps<SVGSVGElement>;
-};
+    attributeName: string
+    attributeValue: string
+  }
+  props: React.SVGProps<SVGSVGElement>
+}
 
-type ControlRules = ControlRule[];
+type ControlRules = ControlRule[]
 
 /**
  * Get an object that indexes control rules.
@@ -24,12 +24,15 @@ type ControlRules = ControlRule[];
 const getPropsSelectorIndex = (
   rules: ControlRules
 ): { [key: string]: React.SVGProps<SVGSVGElement> } => {
-  return rules.reduce((acc, config) => {
-    const { attributeName, attributeValue } = config.selector;
-    acc[attributeName + ":" + attributeValue] = config.props;
-    return acc;
-  }, {} as { [key: string]: React.SVGProps<SVGSVGElement> });
-};
+  return rules.reduce(
+    (acc, config) => {
+      const { attributeName, attributeValue } = config.selector
+      acc[attributeName + ':' + attributeValue] = config.props
+      return acc
+    },
+    {} as { [key: string]: React.SVGProps<SVGSVGElement> }
+  )
+}
 
 /**
  * Clone a React node and its children while trying to inject new props.
@@ -43,43 +46,43 @@ const cloneNode = (
   node: React.ReactElement<ExtendedSVGProps>,
   propsSelectorIndex: { [key: string]: React.SVGProps<SVGSVGElement> }
 ): React.ReactElement<ExtendedSVGProps> => {
-  const { children, ...restProps } = node.props;
+  const { children, ...restProps } = node.props
   let nodeProps: Partial<ExtendedSVGProps> & React.Attributes = {
     ...restProps,
-  };
+  }
 
   const matchingProps =
     propsSelectorIndex[
       Object.entries(nodeProps).find(
-        ([key, value]) => propsSelectorIndex[key + ":" + value]
+        ([key, value]) => propsSelectorIndex[key + ':' + value]
       )?.[0] +
-        ":" +
+        ':' +
         Object.entries(nodeProps).find(
-          ([key, value]) => propsSelectorIndex[key + ":" + value]
+          ([key, value]) => propsSelectorIndex[key + ':' + value]
         )?.[1]
-    ];
+    ]
 
   if (matchingProps) {
     const compatibleProps = Object.entries(matchingProps).reduce(
       (acc, [propKey, propValue]) => {
-        if (typeof propValue === "string") {
-          acc[propKey] = propValue;
+        if (typeof propValue === 'string') {
+          acc[propKey] = propValue
         }
-        return acc;
+        return acc
       },
       {} as ExtendedSVGProps
-    );
-    nodeProps = { ...nodeProps, ...compatibleProps };
+    )
+    nodeProps = { ...nodeProps, ...compatibleProps }
   }
 
   const clonedChildren = React.Children.map(children, (child) =>
     React.isValidElement<ExtendedSVGProps>(child)
       ? cloneNode(child, propsSelectorIndex)
       : child
-  );
+  )
 
-  return React.cloneElement(node, nodeProps, clonedChildren);
-};
+  return React.cloneElement(node, nodeProps, clonedChildren)
+}
 
 /**
  * Type guard to check if a React node is a functional component.
@@ -93,27 +96,27 @@ const isFunctionalComponent = (
 ): node is React.FunctionComponentElement<React.SVGProps<SVGSVGElement>> => {
   return (
     node !== null &&
-    typeof node === "object" &&
-    "type" in node &&
-    typeof node.type === "function"
-  );
-};
+    typeof node === 'object' &&
+    'type' in node &&
+    typeof node.type === 'function'
+  )
+}
 
 /**
  * Component to control the internal nodes of an SVG image.
  */
 export const SvgController: React.FC<{
-  rules: ControlRules;
-  children: React.ReactElement<ExtendedSVGProps>;
+  rules: ControlRules
+  children: React.ReactElement<ExtendedSVGProps>
 }> = ({ rules, children }) => {
   if (!isFunctionalComponent(children)) {
-    return children;
+    return children
   }
 
-  const SvgComponent = children.type({});
-  const propsSelectorIndex = getPropsSelectorIndex(rules);
+  const SvgComponent = children.type({})
+  const propsSelectorIndex = getPropsSelectorIndex(rules)
 
   return React.isValidElement<ExtendedSVGProps>(SvgComponent)
     ? cloneNode(SvgComponent, propsSelectorIndex)
-    : children;
-};
+    : children
+}
