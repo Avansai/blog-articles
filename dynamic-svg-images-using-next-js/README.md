@@ -2,6 +2,8 @@
 
 More details around this GitHub project can be found here: https://blog.avansai.com/en/dynamic-svg-images-using-next-js
 
+The presentation used during the [September 2023 Montreal React Meetup](https://www.meetup.com/react-mtl/events/293274474/) can be viewed [here](https://docs.google.com/presentation/d/1CbNqbS6DlGZnuLf3_3A3HRBzFTmcF0bUP3_NnTTV0_4/edit?usp=sharing).
+
 ## How to use this project
 
 ```bash
